@@ -1,0 +1,30 @@
+---
+import { nav } from "../data/site";
+const path = Astro.url.pathname;
+---
+<header class="sticky top-0 z-40 border-b border-rule bg-paper/90 backdrop-blur-sm">
+  <div class="wrap flex flex-col items-start gap-1 py-2.5 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:py-3.5">
+    <a href="/" class="group flex items-center gap-2.5 no-underline">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true" class="shrink-0">
+        <path d="M2 16 L24 4 L17 22 L13 15 Z" fill="none" stroke="var(--color-ink)" stroke-width="1.6" stroke-linejoin="round"/>
+        <circle cx="13" cy="15" r="2" fill="var(--color-signal)"/>
+      </svg>
+      <span class="display text-[0.95rem] uppercase" style="font-stretch:104%">
+        STEM &amp; Science<span class="text-signal"> for All</span>
+      </span>
+    </a>
+    <nav aria-label="Main" class="-ml-2.5 flex items-center gap-1 sm:ml-0 sm:gap-2">
+      {nav.map((item) => (
+        <a
+          href={item.href}
+          aria-current={path === item.href ? "page" : undefined}
+          class:list={[
+            "label px-2.5 py-2 no-underline transition-colors hover:text-ink",
+            path === item.href && "text-ink underline decoration-signal decoration-2 underline-offset-[6px]",
+          ]}
+        >{item.label}</a>
+      ))}
+      <a href="/join" class="btn btn--primary ml-2 hidden !px-4 !py-2.5 sm:inline-flex">Register</a>
+    </nav>
+  </div>
+</header>

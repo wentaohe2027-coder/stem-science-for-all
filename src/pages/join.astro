@@ -1,0 +1,61 @@
+---
+import Base from "../layouts/Base.astro";
+import { join, org } from "../data/site";
+---
+<Base
+  title="Get involved"
+  description="Register a student, volunteer as an assistant instructor, or fund materials for the free summer engineering program at the Mount Vernon Public Library."
+>
+  <section class="wrap pt-14 pb-4 lg:pt-20">
+    <p class="label label--signal">Get involved</p>
+    <h1 class="mt-5 max-w-4xl">{join.lead}</h1>
+  </section>
+
+  <section class="wrap section pt-12">
+    <div class="rule-ticks mb-12"></div>
+    <div class="grid gap-px bg-rule md:grid-cols-3">
+      {join.paths.map((p) => (
+        <div class="flex flex-col bg-paper p-8">
+          <p class="label label--signal">{p.code}</p>
+          <h2 class="mt-3 text-[1.5rem]">{p.title}</h2>
+          <p class="mt-4 flex-1 text-[0.95rem]">{p.body}</p>
+          <a href={p.cta.href} class="btn btn--ghost mt-8 self-start">{p.cta.label}</a>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="band-dark">
+    <div class="rule-ticks rule-ticks--signal"></div>
+    <div class="wrap section">
+      <div class="grid gap-10 md:grid-cols-2 md:gap-16">
+        <div>
+          <h2>Questions</h2>
+          <p class="mt-5 text-lg">
+            Email is the fastest way to reach the program. Parents, teachers, librarians,
+            and prospective volunteers all welcome.
+          </p>
+          <a href={`mailto:${org.email}`} class="btn btn--onDark mt-8">{org.email}</a>
+        </div>
+        <dl class="self-start">
+          <div class="grid grid-cols-[7rem_1fr] gap-4 border-t border-white/15 py-4">
+            <dt class="label !text-[#7C8A98]">Where</dt>
+            <dd class="m-0 text-[0.95rem] text-paper">Mount Vernon Public Library, Mount Vernon, NY</dd>
+          </div>
+          <div class="grid grid-cols-[7rem_1fr] gap-4 border-t border-white/15 py-4">
+            <dt class="label !text-[#7C8A98]">When</dt>
+            <dd class="m-0 text-[0.95rem] text-paper">Five weeks, two sessions per week, summer 2026</dd>
+          </div>
+          <div class="grid grid-cols-[7rem_1fr] gap-4 border-t border-white/15 py-4">
+            <dt class="label !text-[#7C8A98]">Cost</dt>
+            <dd class="m-0 text-[0.95rem] text-paper">Free, materials included</dd>
+          </div>
+          <div class="grid grid-cols-[7rem_1fr] gap-4 border-t border-white/15 py-4">
+            <dt class="label !text-[#7C8A98]">Ages</dt>
+            <dd class="m-0 text-[0.95rem] text-paper">Elementary and middle school, two separate bands</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</Base>

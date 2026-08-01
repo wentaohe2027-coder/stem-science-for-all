@@ -1,0 +1,95 @@
+---
+/* The signature element.
+
+   Three plotted glider test flights from one student, same launch point,
+   wing redesigned between each. It is the whole program in one picture:
+   you don't get it right the first time, you measure, you change one thing.
+
+   The paths draw themselves once on load, staggered. Reduced-motion users
+   get the finished plot with no animation (handled in global.css). */
+const flights = [
+  { d: "M52,152 C 94,120 142,162 220,338", dist: "2.8 m", label: "Attempt 1", x: 220, kind: "faint", delay: 0.15 },
+  { d: "M52,152 C 130,102 264,156 358,338", dist: "5.1 m", label: "Attempt 2", x: 358, kind: "faint", delay: 0.45 },
+  { d: "M52,152 C 176,88  428,150 556,338", dist: "8.4 m", label: "Attempt 3", x: 556, kind: "best",  delay: 0.75 },
+];
+const ticks = [52, 172, 292, 412, 532];
+---
+
+<figure class="m-0">
+  <svg
+    viewBox="0 0 600 400"
+    class="w-full"
+    role="img"
+    aria-label="A plot of three glider test flights from the same launch point. Attempt one travelled 2.8 metres, attempt two 5.1 metres, and attempt three 8.4 metres, after the wing was redesigned between each flight."
+  >
+    <defs>
+      <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+        <circle cx="0.5" cy="0.5" r="0.75" fill="var(--color-rule)" />
+      </pattern>
+    </defs>
+
+    <rect x="0" y="0" width="600" height="400" fill="url(#grid)" opacity="0.55" />
+
+    <!-- Launch reference -->
+    <line x1="52" y1="152" x2="52" y2="338" stroke="var(--color-rule)" stroke-width="1" stroke-dasharray="3 4" />
+    <text x="60" y="180" class="plot-note" fill="var(--color-ink-2)">launch</text>
+
+    <!-- Ground / distance axis -->
+    <line x1="30" y1="338" x2="576" y2="338" stroke="var(--color-ink)" stroke-width="1.25" />
+    {ticks.map((x, i) => (
+      <g>
+        <line x1={x} y1="338" x2={x} y2="346" stroke="var(--color-ink)" stroke-width="1.25" />
+        <text x={x} y="362" text-anchor="middle" class="plot-note" fill="var(--color-ink-2)">{i * 2}m</text>
+      </g>
+    ))}
+
+    <!-- The flights -->
+    {flights.map((f) => (
+      <path
+        d={f.d}
+        fill="none"
+        pathLength="1"
+        stroke-dasharray="1"
+        stroke-dashoffset="1"
+        class="anim-draw"
+        style={`animation-delay:${f.delay}s`}
+        stroke={f.kind === "best" ? "var(--color-signal)" : "var(--color-sky)"}
+        stroke-width={f.kind === "best" ? 3 : 1.4}
+        stroke-opacity={f.kind === "best" ? 1 : 0.42}
+        stroke-linecap="round"
+      />
+    ))}
+
+    <!-- Landing markers + readings -->
+    {flights.map((f) => (
+      <g class="anim-up" style={`animation-delay:${f.delay + 1.15}s`}>
+        <circle
+          cx={f.x} cy="338" r={f.kind === "best" ? 5 : 3.5}
+          fill={f.kind === "best" ? "var(--color-signal)" : "var(--color-sky)"}
+          fill-opacity={f.kind === "best" ? 1 : 0.42}
+        />
+        <text
+          x={f.x} y="318" text-anchor="middle" class="plot-read"
+          fill={f.kind === "best" ? "var(--color-ink)" : "var(--color-ink-2)"}
+          font-weight={f.kind === "best" ? 500 : 400}
+        >{f.dist}</text>
+        <text x={f.x} y="303" text-anchor="middle" class="plot-note" fill="var(--color-ink-2)" opacity="0.75">{f.label}</text>
+      </g>
+    ))}
+
+    <!-- The glider itself, at the launch point -->
+    <g transform="translate(34,138) scale(1.15)">
+      <path d="M2 16 L24 4 L17 22 L13 15 Z" fill="var(--color-paper)" stroke="var(--color-ink)" stroke-width="1.6" stroke-linejoin="round" />
+      <circle cx="13" cy="15" r="2" fill="var(--color-signal)" />
+    </g>
+  </svg>
+
+  <figcaption class="label mt-1 block">
+    One student, one afternoon. Wing redesigned twice between attempts.
+  </figcaption>
+</figure>
+
+<style>
+  .plot-note { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .plot-read { font-family: var(--font-mono); font-size: 15px; letter-spacing: -0.01em; }
+</style>

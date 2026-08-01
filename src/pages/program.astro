@@ -1,0 +1,79 @@
+---
+import Base from "../layouts/Base.astro";
+import { curriculum, org } from "../data/site";
+let session = 0;
+---
+
+<Base
+  title="Curriculum"
+  description="Ten sessions across five weeks: aerodynamics, control surfaces, simple machines, gear ratios, mechanical design, and basic circuitry — all taught through projects students build and test."
+>
+  <section class="wrap pt-14 pb-4 lg:pt-20">
+    <p class="label label--signal">Summer 2026 · Five weeks</p>
+    <h1 class="mt-5 max-w-4xl">Ten sessions. Two things that move.</h1>
+    <p class="prose-col mt-6 text-lg">{curriculum.intro}</p>
+  </section>
+
+  <section class="wrap section pt-14">
+    <div class="rule-ticks mb-14"></div>
+
+    <div class="relative border-l border-rule pl-6 sm:pl-10">
+      {curriculum.weeks.map((w) => (
+        <div class="relative pb-14 last:pb-0">
+          <!-- Major tick: week boundary -->
+          <span class="absolute -left-6 top-2.5 h-0.5 w-6 bg-signal sm:-left-10 sm:w-10"></span>
+
+          <header class="grid gap-1 sm:grid-cols-[6rem_1fr] sm:gap-6">
+            <p class="label label--signal pt-1.5">Week {String(w.n).padStart(2, "0")}</p>
+            <div>
+              <h2 class="text-[1.6rem] sm:text-[2rem]">{w.title}</h2>
+              <p class="mt-2 text-[0.98rem]">{w.summary}</p>
+            </div>
+          </header>
+
+          <ol class="mt-7 sm:ml-[7.5rem]">
+            {w.days.map((d) => {
+              session += 1;
+              return (
+                <li class="relative grid gap-1.5 border-t border-rule py-5 sm:grid-cols-[7rem_1fr] sm:gap-6">
+                  <!-- Minor tick: one session -->
+                  <span class="absolute -left-6 top-0 h-px w-3 bg-rule sm:-left-[7.6rem] sm:w-4"></span>
+                  <p class="label pt-1">Session {String(session).padStart(2, "0")}</p>
+                  <div>
+                    <h3 class="text-[1.05rem]">{d.title}</h3>
+                    <p class="mt-1.5 text-[0.95rem]">{d.body}</p>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="band-dark">
+    <div class="rule-ticks rule-ticks--signal"></div>
+    <div class="wrap section">
+      <h2>What's provided</h2>
+      <div class="mt-10 grid gap-8 sm:grid-cols-3">
+        <div class="border-t border-white/15 pt-5">
+          <p class="label !text-signal">Materials</p>
+          <p class="mt-2 text-[0.95rem]">Balsa, foam, gears, axles, wheels, rubber bands, wire, and every tool needed. Students bring nothing and keep what they build.</p>
+        </div>
+        <div class="border-t border-white/15 pt-5">
+          <p class="label !text-signal">Instruction</p>
+          <p class="mt-2 text-[0.95rem]">A lead instructor plus assistant instructors working with small groups during every build.</p>
+        </div>
+        <div class="border-t border-white/15 pt-5">
+          <p class="label !text-signal">Cost</p>
+          <p class="mt-2 text-[0.95rem]">None. The program is funded by donations and run in partnership with the Mount Vernon Public Library.</p>
+        </div>
+      </div>
+      <div class="mt-12 flex flex-wrap gap-3">
+        <a href="/join" class="btn btn--onDark">How to register</a>
+        <a href={`mailto:${org.email}`} class="btn no-underline !border-white/30 !text-paper hover:!bg-white/10">Ask about the curriculum</a>
+      </div>
+    </div>
+  </section>
+</Base>

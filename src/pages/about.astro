@@ -1,0 +1,57 @@
+---
+import Base from "../layouts/Base.astro";
+import PhotoSlot from "../components/PhotoSlot.astro";
+import { about, track, org } from "../data/site";
+---
+<Base
+  title="About"
+  description="STEM & Science for All is a student-founded nonprofit running free hands-on engineering programs for elementary and middle school students in Westchester County, New York."
+>
+  <section class="wrap pt-14 pb-4 lg:pt-20">
+    <p class="label label--signal">About the program</p>
+    <h1 class="mt-5 max-w-4xl">Engineering that isn't reserved for kids whose parents can pay for it.</h1>
+  </section>
+
+  <section class="wrap section pt-12">
+    <div class="rule-ticks mb-10"></div>
+    <div class="grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
+      <div>
+        <p class="text-xl leading-relaxed text-ink">{about.lead}</p>
+        {about.paragraphs.map((p) => <p class="mt-5 text-lg">{p}</p>)}
+      </div>
+      <dl class="self-start lg:pt-2">
+        {track.facts.map((f) => (
+          <div class="grid grid-cols-[8.5rem_1fr] gap-4 border-t border-rule py-3.5">
+            <dt class="label">{f.k}</dt>
+            <dd class="m-0 text-[0.95rem] text-ink">{f.v}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <section class="band-dark">
+    <div class="rule-ticks rule-ticks--signal"></div>
+    <div class="wrap section">
+      <div class="grid items-center gap-10 md:grid-cols-[0.8fr_1.2fr] md:gap-14">
+        <PhotoSlot src={about.instructor.image} hint={about.instructor.imageHint} ratio="4 / 5" />
+        <div>
+          <p class="label !text-signal">{about.instructor.role}</p>
+          <h2 class="mt-3">{about.instructor.name}</h2>
+          <p class="mt-5 text-lg">{about.instructor.body}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="border border-ink p-10 text-center md:p-16">
+      <h2>Want to help it run?</h2>
+      <p class="mx-auto mt-4 max-w-lg text-lg">Instructors, materials, and space are the three things the program always needs.</p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="/join" class="btn btn--primary">Get involved</a>
+        <a href={`mailto:${org.email}`} class="btn btn--ghost">Email us</a>
+      </div>
+    </div>
+  </section>
+</Base>

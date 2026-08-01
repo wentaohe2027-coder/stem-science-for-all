@@ -1,0 +1,144 @@
+---
+import Base from "../layouts/Base.astro";
+import GlidePath from "../components/GlidePath.astro";
+import PhotoSlot from "../components/PhotoSlot.astro";
+import { hero, stats, projects, method, audience, track, org } from "../data/site";
+---
+
+<Base
+  title="Free engineering camp in Mount Vernon"
+  description="A free five-week hands-on engineering program for elementary and middle school students at the Mount Vernon Public Library. Students design gliders and gear-driven cars, then test them."
+>
+  <!-- ============ HERO ============ -->
+  <section class="wrap grid items-center gap-10 pt-14 pb-20 lg:grid-cols-[1fr_1.05fr] lg:gap-16 lg:pt-20">
+    <div>
+      <p class="label label--signal">{hero.eyebrow}</p>
+      <h1 class="mt-5">{hero.headline}</h1>
+      <p class="prose-col mt-6 text-lg">{hero.body}</p>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a href={hero.primaryCta.href} class="btn btn--primary">{hero.primaryCta.label}</a>
+        <a href={hero.secondaryCta.href} class="btn btn--ghost">{hero.secondaryCta.label}</a>
+      </div>
+    </div>
+    <div class="lg:pl-4"><GlidePath /></div>
+  </section>
+
+  <!-- ============ READOUT STRIP ============ -->
+  <section class="band-dark">
+    <div class="wrap grid grid-cols-2 gap-y-8 py-11 md:grid-cols-4">
+      {stats.map((s) => (
+        <div class="border-l border-white/15 pl-5">
+          <p class="display text-4xl text-paper md:text-5xl">{s.value}</p>
+          <p class="label mt-1 !text-signal">{s.unit}</p>
+          <p class="mt-1 text-sm text-[#8B99A6]">{s.note}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ============ WHAT THEY BUILD ============ -->
+  <section class="section wrap">
+    <div class="rule-ticks mb-8"></div>
+    <h2>What students build</h2>
+    <p class="prose-col mt-4 text-lg">
+      Two flagship projects, each ending in a test the students run themselves.
+      Nothing is a kit — every design decision is theirs to make and to get wrong.
+    </p>
+
+    <div class="mt-16 space-y-20">
+      {projects.map((p, i) => (
+        <article class:list={["grid items-center gap-8 md:grid-cols-2 md:gap-14"]}>
+          <div class:list={[i % 2 === 1 && "md:order-2"]}>
+            <PhotoSlot src={p.image} hint={p.imageHint} />
+          </div>
+          <div>
+            <p class="label label--signal">{p.code}</p>
+            <h3 class="mt-3">{p.title}</h3>
+            <p class="mt-4">{p.body}</p>
+            <ul class="mt-6 space-y-2.5">
+              {p.points.map((pt) => (
+                <li class="flex gap-3 text-[0.95rem]">
+                  <span class="mt-2.5 h-px w-4 shrink-0 bg-signal"></span>
+                  <span>{pt}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- ============ METHOD ============ -->
+  <section class="band-dark">
+    <div class="rule-ticks rule-ticks--signal"></div>
+    <div class="section wrap">
+      <div class="grid gap-8 lg:grid-cols-[1fr_1.3fr] lg:gap-16">
+        <div>
+          <h2>{method.title}</h2>
+          <p class="mt-5 text-[0.98rem]">{method.intro}</p>
+        </div>
+        <ol class="space-y-0">
+          {method.steps.map((s, i) => (
+            <li class="grid grid-cols-[3rem_1fr] gap-4 border-t border-white/12 py-6 first:border-t-0 first:pt-0">
+              <span class="label !text-signal pt-1">{String(i + 1).padStart(2, "0")}</span>
+              <div>
+                <h3 class="text-lg">{s.title}</h3>
+                <p class="mt-2 text-[0.95rem]">{s.body}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHO IT'S FOR ============ -->
+  <section class="section wrap">
+    <div class="rule-ticks mb-8"></div>
+    <h2>{audience.title}</h2>
+    <div class="mt-10 grid gap-6 md:grid-cols-2">
+      {audience.bands.map((b) => (
+        <div class="border border-rule bg-paper-2/60 p-7">
+          <p class="label label--signal">{b.grades}</p>
+          <h3 class="mt-3">{b.name}</h3>
+          <p class="mt-3 text-[0.95rem]">{b.body}</p>
+        </div>
+      ))}
+    </div>
+    <p class="mt-6 text-[0.95rem] text-ink">{audience.note}</p>
+  </section>
+
+  <!-- ============ TRACK RECORD ============ -->
+  <section class="section wrap">
+    <div class="rule-ticks mb-8"></div>
+    <div class="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
+      <div>
+        <h2>{track.title}</h2>
+        <p class="prose-col mt-5 text-lg">{track.body}</p>
+      </div>
+      <dl class="self-end">
+        {track.facts.map((f) => (
+          <div class="grid grid-cols-[8.5rem_1fr] gap-4 border-t border-rule py-3.5">
+            <dt class="label">{f.k}</dt>
+            <dd class="m-0 text-[0.95rem] text-ink">{f.v}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="wrap pb-24">
+    <div class="border border-ink p-10 text-center md:p-16">
+      <h2>Registration is open for summer 2026</h2>
+      <p class="mx-auto mt-4 max-w-lg text-lg">
+        Free, materials included, at the Mount Vernon Public Library.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="/join" class="btn btn--primary">How to register</a>
+        <a href={`mailto:${org.email}`} class="btn btn--ghost">Ask a question</a>
+      </div>
+    </div>
+  </section>
+</Base>

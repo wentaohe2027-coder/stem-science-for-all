@@ -1,0 +1,29 @@
+---
+import { org, nav } from "../data/site";
+const year = new Date().getFullYear();
+---
+<footer class="band-dark">
+  <div class="rule-ticks rule-ticks--signal"></div>
+  <div class="wrap grid gap-10 py-14 sm:grid-cols-[1.4fr_1fr_1fr]">
+    <div>
+      <p class="display text-xl uppercase" style="font-stretch:104%">{org.name}</p>
+      <p class="mt-3 max-w-xs text-sm">{org.tagline}</p>
+      <p class="label mt-6 !text-[#7C8A98]">{org.fiscalSponsor}</p>
+    </div>
+    <nav aria-label="Footer">
+      <p class="label !text-[#7C8A98]">Pages</p>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li><a href="/" class="no-underline hover:underline">Home</a></li>
+        {nav.map((i) => <li><a href={i.href} class="no-underline hover:underline">{i.label}</a></li>)}
+      </ul>
+    </nav>
+    <div>
+      <p class="label !text-[#7C8A98]">Contact</p>
+      <p class="mt-3 text-sm"><a href={`mailto:${org.email}`} class="no-underline hover:underline">{org.email}</a></p>
+      <p class="mt-2 text-sm">Mount Vernon Public Library<br />Mount Vernon, NY</p>
+    </div>
+  </div>
+  <div class="wrap border-t border-white/10 py-6">
+    <p class="label !text-[#5D6C7A]">&copy; {year} {org.name}</p>
+  </div>
+</footer>

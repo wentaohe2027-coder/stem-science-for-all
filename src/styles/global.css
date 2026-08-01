@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+/* Self-hosted fonts — no Google request, faster load, works offline */
+@import "@fontsource-variable/archivo/wdth.css";
+@import "@fontsource-variable/public-sans";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+
+/* ============================================================
+   DESIGN TOKENS — change these and the whole site changes.
+   This is the only place colors and fonts are defined.
+   ============================================================ */
+@theme {
+  /* Palette: drafting paper, ink, and high-visibility test-range orange */
+  --color-paper:    #EDF0F3; /* page background — cool, like a data sheet */
+  --color-paper-2:  #E1E7EC; /* recessed panels */
+  --color-ink:      #0F1720; /* headings + dark sections */
+  --color-ink-2:    #55636F; /* body text, captions */
+  --color-signal:   #FF5A1F; /* the accent. Buttons, plotted results, ticks */
+  --color-sky:      #1B54D8; /* links + blueprint lines */
+  --color-rule:     #C2CDD6; /* hairlines */
+
+  --font-display: "Archivo Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans:    "Public Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    "IBM Plex Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  :root { color-scheme: light; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink-2);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Display type: expanded, heavy, tight. This is the page's voice. */
+  h1, h2, h3, .display {
+    font-family: var(--font-display);
+    font-stretch: 112%;
+    font-weight: 800;
+    color: var(--color-ink);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  h1 { font-size: clamp(2.6rem, 7vw, 5.25rem); text-transform: uppercase; }
+  h2 { font-size: clamp(1.9rem, 4vw, 3rem); text-transform: uppercase; }
+  h3 { font-size: clamp(1.25rem, 2vw, 1.6rem); font-stretch: 104%; letter-spacing: -0.01em; }
+
+  a { color: var(--color-sky); text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+
+  /* Accessibility floor: never remove this. */
+  :focus-visible {
+    outline: 3px solid var(--color-signal);
+    outline-offset: 3px;
+  }
+
+  ::selection { background: var(--color-signal); color: var(--color-ink); }
+}
+
+@layer components {
+  /* ---- Layout ---- */
+  .wrap  { width: 100%; max-width: 1180px; margin-inline: auto; padding-inline: 1.5rem; }
+  .prose-col { max-width: 62ch; }
+  .section { padding-block: clamp(4rem, 9vw, 7.5rem); }
+
+  /* ---- The measurement rule: the site's structural motif ----
+     A hairline with tick marks, like the edge of a ruler.
+     Used as every section divider. */
+  .rule-ticks {
+    height: 11px;
+    border-top: 1px solid var(--color-rule);
+    background-image: repeating-linear-gradient(
+      to right,
+      var(--color-rule) 0 1px,
+      transparent 1px 28px
+    );
+    background-size: 100% 6px;
+    background-repeat: no-repeat;
+    background-position: top left;
+  }
+  .rule-ticks--signal {
+    border-top-color: var(--color-signal);
+    background-image: repeating-linear-gradient(
+      to right,
+      var(--color-signal) 0 1px,
+      transparent 1px 28px
+    );
+  }
+
+  /* ---- Eyebrow / data labels: the "test log" voice ---- */
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-ink-2);
+  }
+  .label--signal { color: var(--color-signal); }
+
+  /* ---- Buttons ---- */
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.9rem 1.5rem;
+    font-family: var(--font-mono); font-size: 0.8125rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; border: 1px solid transparent;
+    transition: transform 140ms ease, background-color 140ms ease, color 140ms ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  /* Dark text on hi-vis orange — safety-signage contrast, and it passes WCAG AA. */
+  .btn--primary { background: var(--color-signal); color: var(--color-ink); }
+  .btn--primary:hover { background: #ff6f3c; }
+  .btn--ghost { border-color: var(--color-ink); color: var(--color-ink); background: transparent; }
+  .btn--ghost:hover { background: var(--color-ink); color: var(--color-paper); }
+  .btn--onDark { background: var(--color-signal); color: var(--color-ink); }
+
+  /* ---- Dark band ---- */
+  .band-dark { background: var(--color-ink); color: #A9B6C2; }
+  .band-dark h2, .band-dark h3, .band-dark .display { color: var(--color-paper); }
+  .band-dark a { color: #7FA6FF; }
+
+  /* ---- Photo slot: shows a labelled frame until you add a real image ---- */
+  .photo-slot {
+    position: relative; display: block; width: 100%;
+    background: var(--color-paper-2);
+    border: 1px dashed var(--color-rule);
+    display: grid; place-items: center; text-align: center;
+    padding: 2rem; min-height: 260px;
+  }
+  .photo-slot img { width: 100%; height: 100%; object-fit: cover; }
+}
+
+/* ---- Motion: the hero plot draws itself once, then rests. ---- */
+@keyframes draw-in { to { stroke-dashoffset: 0; } }
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+.anim-draw { animation: draw-in 1.5s cubic-bezier(.33,.9,.35,1) forwards; }
+.anim-up   { opacity: 0; animation: fade-up 700ms cubic-bezier(.2,.7,.3,1) forwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .anim-draw, .anim-up { animation: none !important; opacity: 1 !important; stroke-dashoffset: 0 !important; transform: none !important; }
+  .btn:hover { transform: none; }
+}

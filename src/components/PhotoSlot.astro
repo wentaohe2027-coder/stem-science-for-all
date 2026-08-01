@@ -1,0 +1,21 @@
+---
+/* Shows a labelled dashed frame until you drop in a real photo.
+   To use a real image: put the file in public/images/ and set the
+   `image` field in src/data/site.ts to "/images/yourfile.jpg". */
+interface Props { src: string | null; hint: string; ratio?: string; }
+const { src, hint, ratio = "4 / 3" } = Astro.props;
+---
+{src ? (
+  <img src={src} alt={hint} loading="lazy" decoding="async"
+       class="w-full object-cover" style={`aspect-ratio:${ratio}`} />
+) : (
+  <div class="photo-slot" style={`aspect-ratio:${ratio}`}>
+    <div>
+      <svg width="30" height="30" viewBox="0 0 26 26" aria-hidden="true" class="mx-auto opacity-30">
+        <path d="M2 16 L24 4 L17 22 L13 15 Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      </svg>
+      <p class="label mt-3">Photo slot</p>
+      <p class="mt-1 text-sm text-ink-2">{hint}</p>
+    </div>
+  </div>
+)}
