@@ -6,11 +6,11 @@ let session = 0;
 
 <Base
   title="Curriculum"
-  description="Ten sessions across five weeks: aerodynamics, control surfaces, simple machines, gear ratios, mechanical design, and basic circuitry — all taught through projects students build and test."
+  description="Twelve sessions across six weeks in four units: aerodynamics and flight, machines and motion, circuits and electronics, and biology and life science."
 >
   <section class="wrap pt-14 pb-4 lg:pt-20">
-    <p class="label label--signal">Summer 2026 · Five weeks</p>
-    <h1 class="mt-5 max-w-4xl">Ten sessions. Two things that move.</h1>
+    <p class="label label--signal">{org.dates} · Six weeks</p>
+    <h1 class="mt-5 max-w-4xl">Four units. Everything you build, you keep.</h1>
     <p class="prose-col mt-6 text-lg">{curriculum.intro}</p>
   </section>
 
@@ -24,7 +24,7 @@ let session = 0;
           <span class="absolute -left-6 top-2.5 h-0.5 w-6 bg-signal sm:-left-10 sm:w-10"></span>
 
           <header class="grid gap-1 sm:grid-cols-[6rem_1fr] sm:gap-6">
-            <p class="label label--signal pt-1.5">Week {String(w.n).padStart(2, "0")}</p>
+            <p class="label label--signal pt-1.5">Unit {String(w.n).padStart(2, "0")}</p>
             <div>
               <h2 class="text-[1.6rem] sm:text-[2rem]">{w.title}</h2>
               <p class="mt-2 text-[0.98rem]">{w.summary}</p>
@@ -59,7 +59,7 @@ let session = 0;
       <div class="mt-10 grid gap-8 sm:grid-cols-3">
         <div class="border-t border-white/15 pt-5">
           <p class="label !text-signal">Materials</p>
-          <p class="mt-2 text-[0.95rem]">Balsa, foam, gears, axles, wheels, rubber bands, wire, and every tool needed. Students bring nothing and keep what they build.</p>
+          <p class="mt-2 text-[0.95rem]">Balsa, gears, axles, wheels, rubber bands, wire, batteries, and microscope slides — plus every tool needed. Students bring nothing and keep what they build.</p>
         </div>
         <div class="border-t border-white/15 pt-5">
           <p class="label !text-signal">Instruction</p>

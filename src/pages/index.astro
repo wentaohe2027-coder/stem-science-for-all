@@ -2,7 +2,7 @@
 import Base from "../layouts/Base.astro";
 import GlidePath from "../components/GlidePath.astro";
 import PhotoSlot from "../components/PhotoSlot.astro";
-import { hero, stats, projects, method, audience, track, org } from "../data/site";
+import { hero, stats, projects, method, differentiators, audience, track, org } from "../data/site";
 ---
 
 <Base
@@ -91,6 +91,20 @@ import { hero, stats, projects, method, audience, track, org } from "../data/sit
         </ol>
       </div>
     </div>
+  </section>
+
+  <!-- ============ WHAT SETS THIS APART ============ -->
+  <section class="section wrap">
+    <div class="rule-ticks mb-8"></div>
+    <h2>{differentiators.title}</h2>
+    <ul class="mt-10 grid gap-x-12 gap-y-7 md:grid-cols-2">
+      {differentiators.items.map((d, i) => (
+        <li class="grid grid-cols-[2.5rem_1fr] gap-3 border-t border-rule pt-4">
+          <span class="label label--signal">{String(i + 1).padStart(2, "0")}</span>
+          <span class="text-[0.95rem]">{d}</span>
+        </li>
+      ))}
+    </ul>
   </section>
 
   <!-- ============ WHO IT'S FOR ============ -->
