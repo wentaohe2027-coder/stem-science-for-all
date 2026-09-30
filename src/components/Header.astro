@@ -5,10 +5,14 @@ const path = Astro.url.pathname;
 <header class="sticky top-0 z-40 border-b border-rule bg-paper/90 backdrop-blur-sm">
   <div class="wrap flex flex-col items-start gap-1 py-2.5 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:py-3.5">
     <a href="/" class="group flex items-center gap-2.5 no-underline">
-      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true" class="shrink-0">
-        <path d="M2 16 L24 4 L17 22 L13 15 Z" fill="none" stroke="var(--color-ink)" stroke-width="1.6" stroke-linejoin="round"/>
-        <circle cx="13" cy="15" r="2" fill="var(--color-signal)"/>
-      </svg>
+      <img
+        src="/images/stem-science-for-all-logo.png"
+        alt=""
+        aria-hidden="true"
+        width="40"
+        height="40"
+        class="h-10 w-10 shrink-0 rounded-full object-cover"
+      />
       <span class="display text-[0.95rem] uppercase" style="font-stretch:104%">
         STEM &amp; Science<span class="text-signal"> for All</span>
       </span>

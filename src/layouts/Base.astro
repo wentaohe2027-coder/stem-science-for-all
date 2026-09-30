@@ -34,7 +34,8 @@ const pageTitle = `${title} — ${org.name}`;
     <meta property="og:image" content={new URL("/og.png", Astro.site ?? org.url).href} />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#0F1720" />
 
     <!-- Tells Google this is a real nonprofit program, not a personal page. -->
@@ -44,6 +45,7 @@ const pageTitle = `${title} — ${org.name}`;
       name: org.name,
       description: org.tagline,
       url: org.url,
+      logo: new URL("/images/stem-science-for-all-logo.png", Astro.site ?? org.url).href,
       email: org.email,
       areaServed: "Westchester County, New York",
       address: {
