@@ -1,0 +1,118 @@
+---
+import Base from "../layouts/Base.astro";
+import PhotoSlot from "../components/PhotoSlot.astro";
+import { existsSync, readdirSync } from "node:fs";
+import path from "node:path";
+
+const groupPhotoFile = path.join(
+  process.cwd(),
+  "public",
+  "images",
+  "group-photo-2026.jpg"
+);
+
+const groupPhoto = existsSync(groupPhotoFile)
+  ? "/images/group-photo-2026.jpg"
+  : null;
+
+const galleryDir = path.join(
+  process.cwd(),
+  "public",
+  "images",
+  "highlights"
+);
+
+const galleryFiles = existsSync(galleryDir)
+  ? readdirSync(galleryDir)
+      .filter((file) => /\.(jpg|jpeg|png|webp|avif)$/i.test(file))
+      .sort((a, b) =>
+        a.localeCompare(b, undefined, {
+          numeric: true,
+          sensitivity: "base",
+        })
+      )
+  : [];
+---
+
+<Base
+  title="2026 Summer Highlights"
+  description="Photos from the 2026 STEM & Science for All summer program at the Mount Vernon Public Library."
+>
+  <section class="wrap pt-14 pb-10 lg:pt-20">
+    <p class="label label--signal">Summer 2026</p>
+
+    <h1 class="mt-5">2026 Summer Highlights</h1>
+
+    <p class="prose-col mt-6 text-lg">
+      Moments from six weeks of building, testing, redesigning, and discovering
+      together at the Mount Vernon Public Library.
+    </p>
+  </section>
+
+  <section class="wrap section pt-0">
+    <div class="rule-ticks mb-8"></div>
+
+    <h2>Summer 2026</h2>
+
+    <div class="mt-8 max-w-5xl">
+      <PhotoSlot
+        src={groupPhoto}
+        hint="2026 STEM & Science for All group photo"
+        ratio="16 / 9"
+      />
+    </div>
+  </section>
+
+  <section class="wrap section pt-0 pb-24">
+    <div class="rule-ticks mb-8"></div>
+
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <h2>Photo gallery</h2>
+
+        <p class="mt-4 text-[0.98rem]">
+          Scroll sideways to see more moments from the summer.
+        </p>
+      </div>
+
+      {galleryFiles.length > 0 && (
+        <p class="label label--signal">
+          {galleryFiles.length} photo{galleryFiles.length === 1 ? "" : "s"}
+        </p>
+      )}
+    </div>
+
+    {
+      galleryFiles.length > 0 ? (
+        <div
+          class="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-5"
+          aria-label="2026 summer photo gallery"
+        >
+          {galleryFiles.map((file, i) => (
+            <figure class="m-0 w-[280px] shrink-0 snap-start sm:w-[360px] lg:w-[420px]">
+              <img
+                src={`/images/highlights/${file}`}
+                alt={`STEM & Science for All 2026 summer highlight ${i + 1}`}
+                loading="lazy"
+                decoding="async"
+                class="aspect-[4/3] w-full object-cover"
+              />
+
+              <figcaption class="label mt-2">
+                {String(i + 1).padStart(2, "0")}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      ) : (
+        <div class="mt-8">
+          <PhotoSlot
+            src={null}
+            hint="Add gallery photos to public/images/highlights/"
+            ratio="4 / 3"
+          />
+        </div>
+      )
+    }
+  </section>
+</Base>

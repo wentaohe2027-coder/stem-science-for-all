@@ -45,10 +45,10 @@ export const hero = {
 };
 
 export const stats = [
-  { value: "6", unit: "weeks", note: "July 6 – Aug 14, 2026" },
-  { value: "12", unit: "sessions", note: "Two per week" },
-  { value: "100", unit: "free seats", note: "For local students" },
-  { value: "$0", unit: "cost", note: "Materials included" },
+  { value: "6", unit: "weeks", note: "Summer 2026 in Mount Vernon" },
+  { value: "18", unit: "sessions", note: "Three per week" },
+  { value: "100+", unit: "children", note: "Across three age groups" },
+  { value: "$0", unit: "cost", note: "Free in Mount Vernon" },
 ];
 
 /* ---------------------------------------------------------------------------
@@ -57,36 +57,45 @@ export const stats = [
 export const projects = [
   {
     code: "Flagship build 01",
-    title: "The Plane Challenge",
-    body:
-      "Students start with paper gliders and end with aircraft they designed " +
-      "themselves. Along the way they work out why a long thin wing glides farther " +
-      "than a short fat one, and what happens when you move the center of mass.",
-    points: [
-      "Lift, drag, thrust, and stability",
-      "Wing geometry and aspect ratio",
-      "Control surfaces — pitch, roll, and yaw",
-      "A launch-and-measure competition to finish",
-    ],
-    // Drop a photo at public/images/plane.jpg and change this to "/images/plane.jpg"
-    image: null as string | null,
-    imageHint: "Students launching gliders",
-  },
-  {
-    code: "Flagship build 02",
     title: "The Car Challenge",
     body:
       "A rubber band stores energy. A gear train decides whether that energy becomes " +
-      "speed or climbing power. Students build a chassis, pick their ratios, and find " +
-      "out on the test track that they cannot have both.",
+      "speed or climbing power. Students build a chassis, pick their ratios, and test " +
+      "their designs on the track.",
     points: [
       "Levers, pulleys, and mechanical advantage",
       "Gear ratios: trading speed against torque",
       "Chassis design, energy, and friction",
-      "A speed run and a hill climb, same car",
+      "Build, test, adjust, and test again",
     ],
-    image: null as string | null,
-    imageHint: "A student's gear-powered racer mid-test",
+
+    // PHOTO:
+    // Put your car photo at:
+    // public/images/car-challenge.jpg
+    // Then change null below to "/images/car-challenge.jpg"
+    image: "/images/car-challenge.jpg",
+    imageHint: "Students testing their car designs",
+  },
+  {
+    code: "Flagship build 02",
+    title: "The Magnet Challenge",
+    body:
+      "Students build an electromagnet from a screw, wire, and a battery, then test " +
+      "how changing the coil affects its strength. The project ends with a challenge " +
+      "to see how much their switchable magnet can lift.",
+    points: [
+      "Magnetic fields, poles, and magnetic materials",
+      "How electric current creates a magnetic field",
+      "Coils, iron cores, and electromagnets",
+      "A clip hanger challenge to test strength",
+    ],
+
+    // PHOTO:
+    // Put your magnet photo at:
+    // public/images/magnet-challenge.jpg
+    // Then change null below to "/images/magnet-challenge.jpg"
+    image: "/images/magnet-challenge.jpg",
+    imageHint: "Students testing an electromagnet with paperclips",
   },
 ];
 
@@ -144,45 +153,58 @@ export const differentiators = {
    HOME — who it's for
    --------------------------------------------------------------------------- */
 export const audience = {
-  title: "Who it's for",
+  title: "Built for three age groups",
   bands: [
     {
-      // TODO: confirm the exact grade ranges for each band.
-      name: "Younger band",
-      grades: "Elementary school",
+      name: "Younger group",
+      grades: "Age-based instruction",
       body:
-        "Shorter builds, more hands-on time, and a heavier emphasis on testing and " +
-        "iterating than on the underlying math.",
+        "More guided builds, shorter explanations, and plenty of time to test ideas " +
+        "with their hands.",
     },
     {
-      name: "Older band",
-      grades: "Middle school",
+      name: "Middle group",
+      grades: "Age-based instruction",
       body:
-        "The same projects with the science made explicit — ratios, forces, and " +
-        "trade-offs students reason through before they cut anything.",
+        "The same hands-on approach with more room for design choices, measurement, " +
+        "and independent problem-solving.",
+    },
+    {
+      name: "Older group",
+      grades: "Age-based instruction",
+      body:
+        "More independence during the build and greater emphasis on explaining why " +
+        "a design succeeds or fails.",
     },
   ],
   note:
-    "No prior experience required, and nothing to bring. Every material is provided.",
+    "The Mount Vernon program served more than 100 children across three age groups. " +
+    "Weekly sessions continue during the school year.",
 };
 
 /* ---------------------------------------------------------------------------
    HOME — track record
    --------------------------------------------------------------------------- */
 export const track = {
-  title: "Where this came from",
+  title: "How the program grew",
   body:
-    "The program started in Scarsdale in summer 2025 as a two-week camp for about " +
-    "twenty elementary students, run jointly with United Path's Arts & Care Program. " +
-    "That partnership raised over $6,000 for Westchester schools building STEM and " +
-    "art programs, children's hospitals, and youth organizations. In 2026 it moved to " +
-    "the Mount Vernon Public Library's Youth Community Outreach Program, three times " +
-    "longer and five times bigger.",
+    "In the summer after 9th grade, Wentao led science lessons through United Paths' " +
+    "Arts&Care Program. The following summer, he founded STEM & Science for All under " +
+    "Hack Club's fiscal sponsorship and partnered with United Paths to run the two-week " +
+    "Arts & Sciences Camp for about 20 children. Tuition from those early programs was " +
+    "set aside to help make the program free. In the summer after 11th grade, those funds " +
+    "were reinvested to bring the program to Mount Vernon through partnerships with the " +
+    "Mount Vernon Public Library and Youth Community Outreach Program. The free program " +
+    "ran for six weeks, three sessions per week, and served more than 100 children across " +
+    "three age groups. Weekly sessions continue during the school year.",
   facts: [
-    { k: "Founded", v: "2025, Scarsdale NY" },
-    { k: "2026 host", v: "Mount Vernon Public Library & YCOP" },
-    { k: "Raised to date", v: "$6,000+ for Westchester STEM & arts" },
-    { k: "Status", v: "Nonprofit, fiscally sponsored by Hack Club" },
+    { k: "First teaching", v: "Science lessons through United Paths after 9th grade" },
+    { k: "Founded", v: "STEM & Science for All after 10th grade" },
+    { k: "Mount Vernon", v: "6 weeks · 3 sessions/week · 100+ children" },
+    { k: "Age groups", v: "Three separate groups" },
+    { k: "Curriculum", v: "Nine units on under $500 in materials" },
+    { k: "Impact", v: "$6,000+ directed to Westchester schools" },
+    { k: "Now", v: "Weekly sessions continue during the school year" },
   ],
 };
 
@@ -196,48 +218,100 @@ export const track = {
    --------------------------------------------------------------------------- */
 export const curriculum = {
   intro:
-    "Twelve sessions across six weeks, in four units. Each unit ends with something " +
-    "the students built and tested themselves. Materials are provided and every " +
-    "student keeps what they make.",
+    "The 2026 Mount Vernon program ran for six weeks, three sessions per week, across " +
+    "a nine-unit curriculum. Below are four featured units from the full program, each " +
+    "built around explaining an idea, putting it into students' hands, and testing it.",
   weeks: [
     {
       n: 1,
       title: "Aerodynamics & Flight",
-      summary: "Design, build, and fly your own aircraft — then tune it through real testing.",
+      summary:
+        "Using aircraft and flight to make forces, stability, and design trade-offs visible.",
       days: [
-        { title: "The four forces of flight", body: "Lift, drag, thrust, and stability, introduced through paper gliders built to test each one." },
-        { title: "Wing geometry", body: "How aspect ratio and wing shape change glide distance, measured across custom designs." },
-        { title: "The Plane Challenge", body: "Control surfaces added for pitch, roll, and yaw, then a launch-and-measure competition." },
+        {
+          title: "The four forces of flight",
+          body:
+            "Lift, drag, thrust, and stability introduced through hands-on demonstrations and builds.",
+        },
+        {
+          title: "Wing geometry",
+          body:
+            "How wing shape changes flight, explored through designs students can compare and test.",
+        },
+        {
+          title: "Testing and redesign",
+          body:
+            "Students change their designs, measure what happens, and use each result to improve the next attempt.",
+        },
       ],
     },
     {
       n: 2,
       title: "Machines & Motion",
-      summary: "How gears, ratios, energy, and friction turn force into motion.",
+      summary:
+        "How gears, ratios, stored energy, and friction turn force into motion.",
       days: [
-        { title: "Levers and pulleys", body: "Mechanical advantage found by experiment rather than formula." },
-        { title: "Gear ratios", body: "Gear trains built to see how diameter ratios trade speed against torque." },
-        { title: "The Car Challenge", body: "A gear-powered racer built for both a flat-out speed run and a hill climb." },
+        {
+          title: "Levers and mechanical advantage",
+          body:
+            "Students explore how simple machines change the force needed to move an object.",
+        },
+        {
+          title: "Gear ratios",
+          body:
+            "Gear trains make the trade-off between speed and torque visible.",
+        },
+        {
+          title: "The Car Challenge",
+          body:
+            "Students build and test their own racers, then refine the design using what happened on the track.",
+        },
       ],
     },
     {
       n: 3,
-      title: "Circuits & Electronics",
-      summary: "Making abstract electricity concrete enough to hold.",
+      title: "Electricity & Magnetism",
+      summary:
+        "Connecting electric current to the magnetic fields it can create.",
       days: [
-        { title: "Closing the loop", body: "Batteries, switches, and bulbs wired into a first working circuit." },
-        { title: "Series and parallel", body: "Two ways to wire the same components, and why the difference is visible." },
-        { title: "Troubleshooting", body: "Students are handed broken circuits and have to find the fault themselves." },
+        {
+          title: "Closing the loop",
+          body:
+            "Batteries, conductors, and switches make current and complete circuits concrete.",
+        },
+        {
+          title: "Current and magnetic fields",
+          body:
+            "Students connect moving electric charge to the invisible magnetic field around a current-carrying wire.",
+        },
+        {
+          title: "The Magnet Challenge",
+          body:
+            "Students wrap wire around an iron core to build an electromagnet, test how coil design changes its strength, and finish with a clip hanger challenge.",
+        },
       ],
     },
     {
       n: 4,
       title: "Biology & Life Science",
-      summary: "The living world, up close.",
+      summary:
+        "Hands-on investigations of cells, DNA, organisms, and the living world.",
       days: [
-        { title: "Cells under the microscope", body: "Prepared and live samples, drawn and compared by the students." },
-        { title: "DNA, extracted", body: "Pulling real DNA out of everyday material with household chemistry." },
-        { title: "How the body works", body: "Systems of the human body, plus a final showcase of everything built over six weeks." },
+        {
+          title: "Cells under the microscope",
+          body:
+            "Students examine biological samples and compare what they observe.",
+        },
+        {
+          title: "DNA and heredity",
+          body:
+            "Activities connect visible traits and biological material to the information stored in DNA.",
+        },
+        {
+          title: "Living systems",
+          body:
+            "Students connect structures and systems to how organisms function and respond to their environment.",
+        },
       ],
     },
   ],
@@ -248,31 +322,38 @@ export const curriculum = {
    --------------------------------------------------------------------------- */
 export const about = {
   lead:
-    "We swap textbook memorization for hands-on engineering and experimental discovery, " +
-    "turning community spaces into collaborative labs where mistakes become the starting " +
-    "point for problem-solving.",
+    "STEM & Science for All grew from teaching science in an existing community program " +
+    "into a student-founded nonprofit designed to make hands-on STEM accessible without " +
+    "making cost the barrier.",
   paragraphs: [
-    "STEM & Science for All exists because hands-on science is expensive, and the " +
-      "students who would love it most are usually the ones who never get offered it. The " +
-      "program runs free of charge at the Mount Vernon Public Library, as part of the " +
-      "library's Youth Community Outreach Program. Every material — balsa, gears, wire, " +
-      "microscope slides — is covered by the program, not by families.",
-    "It runs on a materials budget in the low hundreds of dollars. That constraint shaped " +
-      "the curriculum more than anything else: every project had to be interesting, " +
-      "durable, and cheap enough that a student could ruin one and start again. Rubber " +
-      "bands and balsa turn out to be excellent teachers.",
+    "In the summer after 9th grade, Wentao taught science lessons through United Paths' " +
+      "Arts&Care Program. The following summer, he founded STEM & Science for All under " +
+      "Hack Club's fiscal sponsorship and partnered with United Paths to run the two-week " +
+      "Arts & Sciences Camp for about 20 children. He designed and taught daily three-hour " +
+      "modules while setting aside tuition so a future version of the program could be free.",
+    "In the summer after 11th grade, the program expanded to Mount Vernon through the " +
+      "Mount Vernon Public Library and Youth Community Outreach Program. Reinvesting funds " +
+      "from the earlier summers made the six-week program free. It ran three sessions per " +
+      "week, reached more than 100 children across three age groups, and used a nine-unit " +
+      "curriculum built on a materials budget under $500. Weekly sessions continue during " +
+      "the school year.",
   ],
   instructor: {
     name: "Wentao He",
-    role: "Founder and lead instructor",
+    role: "Founder and program director",
     body:
-      "Wentao founded the program in 2025 and writes the curriculum, teaches the sessions, " +
-      "and prepares the materials, supported by a team of assistant instructors. He " +
-      "competes in Science Olympiad and does transcriptomics research in a molecular " +
-      "biology lab, and built this program to give younger students the kind of hands-on " +
-      "science he had to go looking for himself.",
-    image: null as string | null,
-    imageHint: "Portrait or a photo of you teaching",
+      "Wentao writes the curriculum, prepares materials, teaches sessions, and trains " +
+      "assistant counselors to lead activities themselves. The program's project-first " +
+      "structure came from trial, error, and advice from experienced teachers: show " +
+      "students what they will build, teach the idea through open questioning, then return " +
+      "to the project and refine it.",
+
+    // YOUR PHOTO SLOT:
+    // Put your photo at:
+    // public/images/wentao-he-teaching.jpg
+    // Then change null below to "/images/wentao-he-teaching.jpg"
+    image: "/images/wentao-he-teaching.jpg",
+    imageHint: "Wentao teaching a STEM & Science for All session",
   },
 };
 
