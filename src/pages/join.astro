@@ -4,10 +4,10 @@ import { join, org } from "../data/site";
 ---
 <Base
   title="Get involved"
-  description="Register a student, volunteer as an assistant instructor, or fund materials for the free summer engineering program at the Mount Vernon Public Library."
+  description="Join STEM & Science for All's free ongoing weekly program at the Mount Vernon Public Library, volunteer as an instructor, or support program materials."
 >
   <section class="wrap pt-14 pb-4 lg:pt-20">
-    <p class="label label--signal">Get involved</p>
+    <p class="label label--signal">Ongoing weekly program · Join now</p>
     <h1 class="mt-5 max-w-4xl">{join.lead}</h1>
   </section>
 
@@ -49,13 +49,26 @@ import { join, org } from "../data/site";
 
       <div class="mt-16">
         <p class="label !text-[#7C8A98]">Who to contact</p>
-        <div class="mt-5 grid gap-px bg-white/15 sm:grid-cols-3">
+        <div class="mt-5 grid gap-px bg-white/15 md:grid-cols-2 xl:grid-cols-4">
           {join.contacts.map((c) => (
             <div class="bg-ink py-5 sm:px-5 sm:first:pl-0">
               <p class="text-[0.95rem] text-paper">{c.name}</p>
               <p class="label mt-1">{c.role}</p>
               {c.contact && (
-                <a href={`mailto:${c.contact}`} class="mt-2 block text-[0.9rem] break-all">{c.contact}</a>
+                <a
+                  href={`mailto:${c.contact}`}
+                  class="mt-2 block text-[0.9rem] break-all"
+                >
+                  {c.contact}
+                </a>
+              )}
+              {c.phone && (
+                <a
+                  href={`tel:${c.phone}`}
+                  class="mt-2 block text-[0.9rem]"
+                >
+                  {c.phone}
+                </a>
               )}
             </div>
           ))}

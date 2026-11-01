@@ -15,7 +15,7 @@ export const org = {
   email: "wentao.he.2027@gmail.com",
   venue: "Mount Vernon Public Library",
   address: "195 N Columbus Ave, Mount Vernon, NY",
-  dates: "July 6 – August 14, 2026",
+  dates: "Weekly during the school year · Mount Vernon, NY",
 
   // TODO: replace with your real domain once you buy one (see README step 6).
   url: "https://stemscienceforall.org",
@@ -33,22 +33,21 @@ export const nav = [
    HOME — hero
    --------------------------------------------------------------------------- */
 export const hero = {
-  eyebrow: "July 6 – August 14, 2026 · Mount Vernon, NY",
-  headline: "Build it. Test it. Make it fly farther.",
+  eyebrow: "Free weekly STEM sessions · Mount Vernon, NY",
+  headline: "Build it. Test it. Keep discovering.",
   body:
-    "A free six-week summer camp for elementary and middle school students. " +
-    "Aircraft, gear-powered racers, working circuits, and the living world — " +
-    "built with real materials, tested by the students who made them, and " +
-    "rebuilt when they don't work the first time.",
+    "A free hands-on STEM program that began with an intensive six-week summer session " +
+    "and now continues with weekly sessions during the school year. Students build, test, " +
+    "redesign, and investigate with real materials across engineering and science.",
   primaryCta: { label: "How to register", href: "/join" },
   secondaryCta: { label: "See the curriculum", href: "/program" },
 };
 
 export const stats = [
-  { value: "6", unit: "weeks", note: "Summer 2026 in Mount Vernon" },
-  { value: "18", unit: "sessions", note: "Three per week" },
+  { value: "6", unit: "summer weeks", note: "Intensive 2026 session" },
+  { value: "18", unit: "summer sessions", note: "Three per week" },
   { value: "100+", unit: "children", note: "Across three age groups" },
-  { value: "$0", unit: "cost", note: "Free in Mount Vernon" },
+  { value: "Weekly", unit: "school-year sessions", note: "Program continues" },
 ];
 
 /* ---------------------------------------------------------------------------
@@ -178,8 +177,8 @@ export const audience = {
     },
   ],
   note:
-    "The Mount Vernon program served more than 100 children across three age groups. " +
-    "Weekly sessions continue during the school year.",
+    "The six-week summer session served more than 100 children across three age groups, " +
+    "and the program now continues with weekly sessions during the school year.",
 };
 
 /* ---------------------------------------------------------------------------
@@ -194,9 +193,10 @@ export const track = {
     "Arts & Sciences Camp for about 20 children. Tuition from those early programs was " +
     "set aside to help make the program free. In the summer after 11th grade, those funds " +
     "were reinvested to bring the program to Mount Vernon through partnerships with the " +
-    "Mount Vernon Public Library and Youth Community Outreach Program. The free program " +
-    "ran for six weeks, three sessions per week, and served more than 100 children across " +
-    "three age groups. Weekly sessions continue during the school year.",
+    "Mount Vernon Public Library and Youth Community Outreach Program. The program launched " +
+    "there with an intensive six-week summer session meeting three times per week and serving " +
+    "more than 100 children across three age groups. It did not end with the summer: free " +
+    "weekly sessions continue during the school year.",
   facts: [
     { k: "First teaching", v: "Science lessons through United Paths after 9th grade" },
     { k: "Founded", v: "STEM & Science for All after 10th grade" },
@@ -204,7 +204,7 @@ export const track = {
     { k: "Age groups", v: "Three separate groups" },
     { k: "Curriculum", v: "Nine units on under $500 in materials" },
     { k: "Impact", v: "$6,000+ directed to Westchester schools" },
-    { k: "Now", v: "Weekly sessions continue during the school year" },
+    { k: "Now", v: "Free weekly sessions continue during the school year" },
   ],
 };
 
@@ -218,9 +218,10 @@ export const track = {
    --------------------------------------------------------------------------- */
 export const curriculum = {
   intro:
-    "The 2026 Mount Vernon program ran for six weeks, three sessions per week, across " +
-    "a nine-unit curriculum. Below are four featured units from the full program, each " +
-    "built around explaining an idea, putting it into students' hands, and testing it.",
+    "The Mount Vernon program began with an intensive six-week summer session meeting " +
+    "three times per week across a nine-unit curriculum, then continued with weekly " +
+    "school-year sessions. Below are four featured units from the program, each built " +
+    "around explaining an idea, putting it into students' hands, and testing it.",
   weeks: [
     {
       n: 1,
@@ -333,10 +334,10 @@ export const about = {
       "modules while setting aside tuition so a future version of the program could be free.",
     "In the summer after 11th grade, the program expanded to Mount Vernon through the " +
       "Mount Vernon Public Library and Youth Community Outreach Program. Reinvesting funds " +
-      "from the earlier summers made the six-week program free. It ran three sessions per " +
-      "week, reached more than 100 children across three age groups, and used a nine-unit " +
-      "curriculum built on a materials budget under $500. Weekly sessions continue during " +
-      "the school year.",
+      "from the earlier summers made the program free. It launched with an intensive " +
+      "six-week summer session meeting three times per week, reached more than 100 children " +
+      "across three age groups, and used a nine-unit curriculum built on a materials budget " +
+      "under $500. The program continues with free weekly sessions during the school year.",
   ],
   instructor: {
     name: "Wentao He",
@@ -361,46 +362,68 @@ export const about = {
    GET INVOLVED PAGE
    --------------------------------------------------------------------------- */
 export const join = {
-  lead: "There are three ways in.",
+  lead: "Join the program that's running now.",
   paths: [
     {
       code: "For families",
-      title: "Register a student",
+      title: "Join the weekly program",
       body:
-        "Sign up in person at the front desk of the Mount Vernon Public Library, or email " +
-        "to reserve a spot. 100 free seats, open to all elementary and middle school " +
-        "students. No prior experience required.",
-      cta: { label: "Email to register", href: "mailto:wentao.he.2027@gmail.com" },
+        "STEM & Science for All continues with free weekly sessions during the school " +
+        "year at the Mount Vernon Public Library. Families interested in joining can " +
+        "ask at the library front desk or email the program for current session and " +
+        "age-group availability. No prior STEM experience is required.",
+      cta: { label: "Email to join", href: "mailto:wentao.he.2027@gmail.com" },
     },
     {
       code: "For students & teachers",
       title: "Volunteer as an instructor",
       body:
-        "Assistant instructors run small groups during builds. High schoolers who are " +
-        "comfortable with the material and patient with nine-year-olds are the right fit.",
-      cta: { label: "Get in touch", href: "mailto:wentao.he.2027@gmail.com" },
+        "Assistant instructors help lead small groups during hands-on builds and experiments. " +
+        "High school students who are comfortable explaining STEM concepts and working " +
+        "patiently with younger students can get involved throughout the school year.",
+      cta: { label: "Ask about volunteering", href: "mailto:wentao.he.2027@gmail.com" },
     },
     {
       code: "For supporters",
       title: "Fund materials",
       body:
-        "The whole program runs on a few hundred dollars of balsa, gears, and wire. " +
-        "Small amounts go a long way and every dollar goes into a student's hands.",
-      // TODO: link your Hack Club (HCB) donation page here.
+        "The program is free for participating families, so support goes directly toward " +
+        "materials for weekly sessions and future intensive programming. Even small " +
+        "contributions help supply the builds and experiments students use.",
       cta: { label: "Support the program", href: "mailto:wentao.he.2027@gmail.com" },
     },
   ],
   contacts: [
-    { name: "Wentao He", role: "Founder", contact: "wentao.he.2027@gmail.com" },
-    { name: "Ms. Webb", role: "Mount Vernon Public Library", contact: "cwebb@mvplibrary.org" },
-    // TODO: add Mr. Henry's email or phone if he's happy to be listed publicly.
-    { name: "Mr. Henry", role: "YCOP", contact: null as string | null },
+    {
+      name: "Wentao He",
+      role: "Founder & Program Director",
+      contact: "wentao.he.2027@gmail.com",
+      phone: null as string | null,
+    },
+    {
+      name: "Ms. Webb",
+      role: "Mount Vernon Public Library",
+      contact: "cwebb@mvplibrary.org",
+      phone: null as string | null,
+    },
+    {
+      name: "Henry Wilson",
+      role: "YCOP · Executive Director",
+      contact: "wilson.henry2010@gmail.com",
+      phone: "914-215-3063",
+    },
+    {
+      name: "Zinobi Duncombe",
+      role: "YCOP · Program Administrator",
+      contact: "zduncombe.ycop@gmail.com",
+      phone: "914-646-0735",
+    },
   ],
   details: [
     { k: "Where", v: "Mount Vernon Public Library, 195 N Columbus Ave, Mount Vernon, NY" },
-    { k: "When", v: "July 6 – August 14, 2026. Six weeks, two sessions per week." },
-    { k: "Cost", v: "Free. All materials included." },
-    { k: "Who", v: "Elementary and middle school students, two separate bands" },
-    { k: "How", v: "In person at the library front desk, or by email" },
+    { k: "When", v: "Weekly during the school year, following the focused six-week summer session" },
+    { k: "Cost", v: "Free. All program materials are provided." },
+    { k: "Who", v: "Children participate across three age groups" },
+    { k: "Join", v: "Ask at the library front desk or email for current session availability" },
   ],
 };
